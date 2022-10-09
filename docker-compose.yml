@@ -1,0 +1,19 @@
+# Specify the version of the docker compose document
+version: "3.8"
+
+# We define all services our app needs
+services:
+  # we can change the name of the service, but here it's more clear to call it 'api'
+  api: 
+    # location of the Dockerfile for this service
+    build: ./api
+    # name of the container for this service
+    container_name: api_c
+    # exposed ports for this service
+    ports:
+      - "3000:3000"
+      # volumes for this services (detect changes on local in the /api folder and update
+      # the /app folder inside the container)
+    volumes: 
+      - ./api:/app
+      - /app/node_modules # to not map the node_modules in /api
