@@ -8,7 +8,13 @@ const app = express();
 app.use(cors());
 
 app.get("/", (_, res) => {
-  return res.json({ message: "Docker it's amazing!" });
+  return res.json([
+    { id: 1, user: "John" },
+    { id: 2, user: "Lolo" },
+    { id: 3, user: "Koko" },
+    { id: 4, user: "Toto" },
+    { id: 5, user: "Popo" },
+  ]);
 });
 
 app.listen(PORT, () => {
